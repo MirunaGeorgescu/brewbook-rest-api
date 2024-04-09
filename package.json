@@ -1,0 +1,30 @@
+{
+  "name": "brewbook-rest-api",
+  "version": "1.0.0",
+  "description": "rest api implementation",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MirunaGeorgescu/brewbook-rest-api.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "mysql"
+  ],
+  "author": "Miruna-Bianca Georgescu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MirunaGeorgescu/brewbook-rest-api/issues"
+  },
+  "homepage": "https://github.com/MirunaGeorgescu/brewbook-rest-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.9.3",
+    "sequelize": "^6.37.2"
+  }
+}
