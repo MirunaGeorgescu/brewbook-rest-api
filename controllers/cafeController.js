@@ -55,7 +55,7 @@ const updateCafe = async (req, res) => {
 // delete cafe
 const deleteCafe = async(req, res) => {
     // get the cafe id from the http parameters 
-    let  cafeId = req.params.id; 
+    let cafeId = req.params.id; 
 
     // update the cafe from the database based on the id
     await Cafe.destroy({where: {id:  cafeId}});  

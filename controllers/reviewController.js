@@ -8,7 +8,8 @@ const createReview = async (req, res) => {
     // get the data for the review from the body 
     let newReviewInfo = {
         rating: req.body.rating, 
-        comment: req.body.comment
+        comment: req.body.comment, 
+        productId: req.body.productId
     }
 
     // create a new review in the database 

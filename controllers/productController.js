@@ -63,11 +63,25 @@ const deleteProduct = async(req, res) => {
     res.status(200).send('The product was successfully deleted!'); 
 }
 
+// connect one to many relation Product and Reviews 
+const getProductReviews = async (req, res) => {
+    let productId = req.params.id; 
+
+    const data = await Product.findAll({
+        include: [{
+            model: Review, 
+            as: 'review'
+        }], 
+        where: {id: productId}
+    }); 
+}; 
+
 // exporting the functions so they can be accessed form the other files
 module.exports = {
     createProduct, 
     getAllProducts, 
     getProduct, 
     updateProduct, 
-    deleteProduct
+    deleteProduct, 
+    getProductReviews
 }
