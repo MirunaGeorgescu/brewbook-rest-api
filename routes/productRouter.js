@@ -16,4 +16,7 @@ router.put('/:id', productController.updateProduct);
 // for deleting a product that already exists
 router.delete('/:id', productController.deleteProduct);
 
+// for getting all the reviews associated with a product 
+router.get('/:id/getProductReviews', productController.getProductReviews); 
+
 module.exports = router;

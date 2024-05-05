@@ -67,13 +67,14 @@ const deleteProduct = async(req, res) => {
 const getProductReviews = async (req, res) => {
     let productId = req.params.id; 
 
-    const data = await Product.findAll({
+    const product = await Product.findByPk(productId, {
         include: [{
             model: Review, 
             as: 'review'
-        }], 
-        where: {id: productId}
-    }); 
+        }]
+    });
+
+     res.status(200).send(product.review);
 }; 
 
 // exporting the functions so they can be accessed form the other files
