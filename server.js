@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const productRouter = require('./routes/productRouter');
 const reviewRouter = require('./routes/reviewRouter');
+const cafeRouter = require('./routes/cafeRouter');
 
 // creating an instance of an express app 
 const app = express();
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 // mount routes
 app.use('/api/products', productRouter);
 app.use('/api/reviews', reviewRouter);
+app.use('/api/cafes', cafeRouter);
 
 
 // starting the server

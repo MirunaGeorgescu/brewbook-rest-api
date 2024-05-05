@@ -1,4 +1,7 @@
+// import the controller
 const reviewController = require('../controllers/reviewController');
+
+
 const router = require('express').Router();
 
 // for creating a new review 
