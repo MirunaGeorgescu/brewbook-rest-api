@@ -44,7 +44,9 @@ const updateProduct = async (req, res) => {
     let productId = req.params.id; 
 
     // update the product based on the id
-    const product = await Product.update(req.body, {where: {id: productId}}); 
+    await Product.update(req.body, {where: {id: productId}}); 
+
+    const product = Product.findOne({where: {id: productId}}); 
 
     res.status(200).send(product); 
 }
