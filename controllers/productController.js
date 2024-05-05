@@ -9,7 +9,8 @@ const createProduct = async (req, res) => {
     let newProductInfo = {
         name: req.body.name, 
         price: req.body.price, 
-        description: req.body.description
+        description: req.body.description, 
+        cafeId: req.body.cafeId
     }
 
     // create a new product in the database 
@@ -70,11 +71,11 @@ const getProductReviews = async (req, res) => {
     const product = await Product.findByPk(productId, {
         include: [{
             model: Review, 
-            as: 'review'
+            as: 'reviews'
         }]
     });
 
-     res.status(200).send(product.review);
+     res.status(200).send(product.reviews);
 }; 
 
 // exporting the functions so they can be accessed form the other files

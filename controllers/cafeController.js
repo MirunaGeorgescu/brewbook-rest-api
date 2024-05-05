@@ -63,11 +63,28 @@ const deleteCafe = async(req, res) => {
     res.status(200).send('The cafe was successfully deleted!'); 
 }
 
+// find all products associated with the cafe 
+const getCafeProducts = async(req, res) => {
+    // get cafe id from the http parameters 
+    const cafeId = req.params.id;
+
+    // get the cafe with all the products that are linked to it 
+    const cafe = await Cafe.findByPk(cafeId, {
+        include: [{
+            model: Product,
+            as: 'products' // Alias for the associated products
+        }]
+    });
+
+    res.status(200).send(cafe.products);
+}
+
 // exporting the functions so they can be accessed from the other files
 module.exports = {
     createCafe, 
     getAllCafes, 
     getCafe, 
     updateCafe, 
-    deleteCafe
+    deleteCafe,
+    getCafeProducts
 }

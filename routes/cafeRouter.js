@@ -16,4 +16,7 @@ router.put('/:id', cafeController.updateCafe);
 // for deleting a cafe that already exists
 router.delete('/:id', cafeController.deleteCafe);
 
+// for getting all the products associated with that cafe 
+router.get('/:id/getCafeProducts', cafeController.getCafeProducts); 
+
 module.exports = router;
