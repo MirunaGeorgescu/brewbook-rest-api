@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.TEXT
         }
     }, {
-        tableName: 'cafes' // Explicitly specify the table name as "cafes"
+        tableName: 'cafes' // specify that the table name should be cafes, not caves 
     }); 
 
     return Cafe; 

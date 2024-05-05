@@ -1,7 +1,8 @@
 // importing dependencies (the express framework and cors middleware)
 const express = require('express');
 const cors = require('cors');
-const productRouter = require('./routes/productRouter'); 
+const productRouter = require('./routes/productRouter');
+const reviewRouter = require('./routes/reviewRouter');
 
 // creating an instance of an express app 
 const app = express();
@@ -19,8 +20,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// testing api 
+// mount routes
 app.use('/api/products', productRouter);
+app.use('/api/reviews', reviewRouter);
+
 
 // starting the server
 app.listen(PORT, () => {
