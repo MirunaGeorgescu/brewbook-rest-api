@@ -4,6 +4,7 @@ const cors = require('cors');
 const productRouter = require('./routes/productRouter');
 const reviewRouter = require('./routes/reviewRouter');
 const cafeRouter = require('./routes/cafeRouter');
+const errorHandler = require('./middleware/ErrorHandler');
 
 // creating an instance of an express app 
 const app = express();
@@ -20,6 +21,7 @@ var corsOptions = {
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(errorHandler);
 
 // mount routes
 app.use('/api/products', productRouter);
