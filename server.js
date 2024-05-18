@@ -5,6 +5,7 @@ const productRouter = require('./routes/productRouter');
 const reviewRouter = require('./routes/reviewRouter');
 const cafeRouter = require('./routes/cafeRouter');
 const errorHandler = require('./middleware/ErrorHandler');
+const authRouter = require('./routes/authRoutes'); 
 
 // creating an instance of an express app 
 const app = express();
@@ -27,6 +28,7 @@ app.use(errorHandler);
 app.use('/api/products', productRouter);
 app.use('/api/reviews', reviewRouter);
 app.use('/api/cafes', cafeRouter);
+app.use('/api/auth', authRouter);
 
 
 // starting the server
