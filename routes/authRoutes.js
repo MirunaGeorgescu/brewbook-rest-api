@@ -7,6 +7,7 @@ router.get('/users', authController.getAllUsers);
 // adding a new user to the database 
 router.post('/users', authController.createUser);
 
-//router.post('/login', authController.login); 
+//logging in a user
+router.post('/login', authController.login); 
 
 module.exports = router;
