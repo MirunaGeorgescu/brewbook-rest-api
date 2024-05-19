@@ -1,22 +1,23 @@
 const cafeController = require('../controllers/cafeController.js');
 const router = require('express').Router();
+const authenticateUser = require('../middleware/authenticateUser');
 
 // for creating a cafe
-router.post('/createCafe', cafeController.createCafe);
+router.post('/createCafe',authenticateUser, cafeController.createCafe);
 
 // for displaying all the cafes
-router.get('/allCafes', cafeController.getAllCafes);
+router.get('/allCafes', authenticateUser, cafeController.getAllCafes);
 
 // for displaying one cafe based on the provided id
-router.get('/:id', cafeController.getCafe);
+router.get('/:id', authenticateUser, cafeController.getCafe);
 
 // for editing a cafe that already exists 
-router.put('/:id', cafeController.updateCafe);
+router.put('/:id', authenticateUser, cafeController.updateCafe);
 
 // for deleting a cafe that already exists
-router.delete('/:id', cafeController.deleteCafe);
+router.delete('/:id', authenticateUser, cafeController.deleteCafe);
 
 // for getting all the products associated with that cafe 
-router.get('/:id/getCafeProducts', cafeController.getCafeProducts); 
+router.get('/:id/getCafeProducts', authenticateUser, cafeController.getCafeProducts); 
 
 module.exports = router;
