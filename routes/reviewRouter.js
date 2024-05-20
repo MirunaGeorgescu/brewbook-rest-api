@@ -2,7 +2,7 @@
 const reviewController = require('../controllers/reviewController');
 const authenticateUser = require('../middleware/authenticateUser');
 const authorizeRole = require ('../middleware/authorizeRole'); 
-
+const validateIdParam = require('../middleware/validateId')
 
 const router = require('express').Router();
 
@@ -13,12 +13,12 @@ router.post('/createReview', authenticateUser, reviewController.createReview);
 router.get('/allReviews', authenticateUser, reviewController.getAllReviews);
 
 // for getting one of the reviews by id
-router.get('/:id', authenticateUser, reviewController.getReview);
+router.get('/:id', authenticateUser, validateIdParam, reviewController.getReview);
 
 // for updating an existing review
-router.put('/:id', authenticateUser, reviewController.updateReview);
+router.put('/:id', authenticateUser, validateIdParam, reviewController.updateReview);
 
 // for deleting an existing review
-router.delete('/:id', authenticateUser, reviewController.deleteReview);
+router.delete('/:id', authenticateUser, validateIdParam, reviewController.deleteReview);
 
 module.exports = router;
