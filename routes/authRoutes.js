@@ -12,4 +12,7 @@ router.get('/users', authenticateUser, authorizeRole(['Admin']), authController.
 // adding a new user to the database 
 router.post('/users', authenticateUser, authorizeRole(['Admin']),  authController.createUser);
 
+// signup for new users
+router.post('/signup',  authController.signup);
+
 module.exports = router;
