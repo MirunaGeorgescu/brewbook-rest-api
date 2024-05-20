@@ -18,11 +18,12 @@ const login = async (req, res, next) => {
 
     // compare the hashed password with the user's one
     const passwordMatch = await bcrypt.compare(req.body.password, user.password);
+
     if (passwordMatch) {
       // if the password is correct 
-      const userPayload = { id: user.id, username: user.username, email: user.email }; 
-      const accessToken = jwt.sign(userPayload, process.env.ACCESS_TOKEN_SECRET);
+      const userPayload = { id: user.id, username: user.username, email: user.email, role: user.role }; 
 
+      const accessToken = jwt.sign(userPayload, process.env.ACCESS_TOKEN_SECRET);
       return res.status(200).json({ accessToken: accessToken });
 
     } else {

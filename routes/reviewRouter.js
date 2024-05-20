@@ -1,6 +1,8 @@
 // import the controller
 const reviewController = require('../controllers/reviewController');
 const authenticateUser = require('../middleware/authenticateUser');
+const authorizeRole = require ('../middleware/authorizeRole'); 
+
 
 const router = require('express').Router();
 
